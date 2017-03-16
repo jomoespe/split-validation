@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Form proof of concept (trace bullet)</title>
+<link rel="stylesheet" href="css/default.css">
+<script src="script/index.js" defer="defer"></script>
+<h1>Customer Form proof of concept</h1>
+<h2>Create/Update user data form</h2>
+<form>
+  <div><label class="customercare" for="name">Name:</label><input type="text" id="name" placeholder="Put your name here"></div>
+  <div><label class="customercare">Email: </label><input type="text" id="email" placeholder="format: user@server.com"></div>
+  <div><label class="customercare">Phone: </label><input type="tel" id="phone" placeholder="format: +99 999 99 99"></div>
+  <div><label class="finance">Bank account: </label><input type="text" id="bankAccount" placeholder="format: ES 9999.9999.99.9999999999" title="Remember!!! Should start with ES"></div>
+  <div><label class="logistics">Delivery address: </label><textarea id="deliveryAddress" placeholder="Full delivery address"></textarea></div>
+  <div><progress id="validationPprogress" value="0" max="100"></progress></div>
+  <div><button id="sendContact" disabled="disabled">Save</button></div>
+</form>
+<section id="description">
+  <h2>What this proof of concept is about</h2>
+  <p>This proof of concept is about a user interface that manages data from different 
+     domains.</p>
+  <p>In this example data from three different domains is handled: <em class="customercare">customer care</em>, 
+     <em class="finance">finance</em> and <em class="logistics">logistics</em>.</p>
+</section>
