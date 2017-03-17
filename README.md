@@ -1,8 +1,24 @@
 Validation Responsability
 =========================
 
-Modules
--------
+Descriptions
+------------
+
+### Context
+
+![Context](doc/images/context.png)
+
+### Microservices
+
+![alt text](doc/images/microservices.png)
+
+### Subsystems
+
+![alt text](doc/images/subsystems.png)
+
+
+Modules/Microservices
+---------------------
 
   - My Account
   - Finances
