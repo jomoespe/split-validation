@@ -2,7 +2,7 @@ package com.jomoespe.lab.validationresponsability.myaccount.adapters;
 
 import static com.jomoespe.lab.validationresponsability.myaccount.Config.logisticsAddressValidationUrl;
 
-import static com.mashape.unirest.http.Unirest.post;
+import static com.mashape.unirest.http.Unirest.put;
 
 import com.jomoespe.lab.validationresponsability.myaccount.rest.CustomerForm;
 import com.jomoespe.lab.validationresponsability.validation.Validation;
@@ -17,7 +17,7 @@ public class LogisticsValidation implements Function<CustomerForm, Validation> {
     @Override
     public Validation apply(CustomerForm customer) {
             try {
-                HttpResponse<JsonNode> response = post(logisticsAddressValidationUrl.get())
+                HttpResponse<JsonNode> response = put(logisticsAddressValidationUrl.get())
                                                   .body(message.apply(customer))
                                                   .asJson();
                 return new Validation.Builder()

@@ -1,6 +1,6 @@
 package com.jomoespe.lab.validationresponsability.myaccount.rest;
 
-import static spark.Spark.post;
+import static spark.Spark.put;
 
 import static javax.json.Json.createReader;
 
@@ -20,7 +20,7 @@ public class CustomerService {
     
     public CustomerService(Function<Customer, Validation> validation) {
         this.validation = validation;
-        post("/customer/form/validation", this::validate, Transformer::toJson);
+        put("/customer/form/validation", this::validate, Transformer::toJson);
     }
 
     public Validation validate(final Request request, final Response response) {

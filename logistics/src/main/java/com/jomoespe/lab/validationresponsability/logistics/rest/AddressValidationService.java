@@ -1,7 +1,7 @@
 package com.jomoespe.lab.validationresponsability.logistics.rest;
 
 import static spark.Spark.path;
-import static spark.Spark.post;
+import static spark.Spark.put;
 
 import static javax.json.Json.createReader;
 
@@ -22,7 +22,7 @@ public class AddressValidationService {
     public AddressValidationService(Function<Address, Validation> validation) {
         this.validation = validation;
         path("/address", () -> {
-            post("/validation", this::validate, Transformer::toJson);
+            put("/validation", this::validate, Transformer::toJson);
         });
     }
 
