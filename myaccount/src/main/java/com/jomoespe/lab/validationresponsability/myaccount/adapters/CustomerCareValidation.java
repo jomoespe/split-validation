@@ -2,7 +2,7 @@ package com.jomoespe.lab.validationresponsability.myaccount.adapters;
 
 import static com.jomoespe.lab.validationresponsability.myaccount.Config.customerCareContactValidation;
 
-import static com.mashape.unirest.http.Unirest.put;
+import static com.mashape.unirest.http.Unirest.post;
 
 import com.jomoespe.lab.validationresponsability.myaccount.rest.CustomerForm;
 import com.jomoespe.lab.validationresponsability.validation.Validation;
@@ -17,7 +17,7 @@ public class CustomerCareValidation implements Function<CustomerForm, Validation
     @Override
     public Validation apply(CustomerForm customer) {
         try {
-            HttpResponse<JsonNode> response = put(customerCareContactValidation.get())
+            HttpResponse<JsonNode> response = post(customerCareContactValidation.get())
                                               .body(message.apply(customer))
                                               .asJson();
             return new Validation.Builder()

@@ -2,7 +2,7 @@ package com.jomoespe.lab.validationresponsability.myaccount.adapters;
 
 import static com.jomoespe.lab.validationresponsability.myaccount.Config.finaceBankAccountValidationUrl;
 
-import static com.mashape.unirest.http.Unirest.put;
+import static com.mashape.unirest.http.Unirest.post;
 
 import com.jomoespe.lab.validationresponsability.myaccount.rest.CustomerForm;
 import com.jomoespe.lab.validationresponsability.validation.Validation;
@@ -17,7 +17,7 @@ public class FinancesValidation implements Function<CustomerForm, Validation> {
     @Override
     public Validation apply(CustomerForm customer) {
         try {
-            HttpResponse<JsonNode> response = put(finaceBankAccountValidationUrl.get())
+            HttpResponse<JsonNode> response = post(finaceBankAccountValidationUrl.get())
                                               .body(message.apply(customer))
                                               .asJson();
             return new Validation.Builder()

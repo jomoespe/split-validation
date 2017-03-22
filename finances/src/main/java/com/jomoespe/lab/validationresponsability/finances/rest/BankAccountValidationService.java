@@ -1,7 +1,7 @@
 package com.jomoespe.lab.validationresponsability.finances.rest;
 
 import static spark.Spark.path;
-import static spark.Spark.put;
+import static spark.Spark.post;
 
 import static javax.json.Json.createReader;
 
@@ -22,7 +22,7 @@ public class BankAccountValidationService {
     public BankAccountValidationService(Function<BankAccount, Validation> validation) {
         this.validation = validation;
         path("/bankaccount", () -> {
-            put("/validation", this::validate, Transformer::toJson);
+            post("/validation", this::validate, Transformer::toJson);
         });
     }
 
