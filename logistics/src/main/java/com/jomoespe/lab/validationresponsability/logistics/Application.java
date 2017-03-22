@@ -3,7 +3,7 @@ package com.jomoespe.lab.validationresponsability.logistics;
 import static spark.Spark.port;
 
 import com.jomoespe.lab.validationresponsability.logistics.core.AddressValidation;
-import com.jomoespe.lab.validationresponsability.logistics.rest.AddressValidationService;
+import com.jomoespe.lab.validationresponsability.logistics.http.AddressValidationService;
 
 public class Application {
     private static final int DEFAULT_PORT = 8083;

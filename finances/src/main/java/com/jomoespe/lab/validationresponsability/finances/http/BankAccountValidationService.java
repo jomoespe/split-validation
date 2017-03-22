@@ -1,4 +1,4 @@
-package com.jomoespe.lab.validationresponsability.finances.rest;
+package com.jomoespe.lab.validationresponsability.finances.http;
 
 import static spark.Spark.path;
 import static spark.Spark.post;

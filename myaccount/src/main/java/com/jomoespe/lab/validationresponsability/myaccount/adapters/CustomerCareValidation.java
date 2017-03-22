@@ -4,7 +4,7 @@ import static com.jomoespe.lab.validationresponsability.myaccount.Config.custome
 
 import static com.mashape.unirest.http.Unirest.post;
 
-import com.jomoespe.lab.validationresponsability.myaccount.rest.CustomerForm;
+import com.jomoespe.lab.validationresponsability.myaccount.http.CustomerForm;
 import com.jomoespe.lab.validationresponsability.validation.Validation;
 
 import com.mashape.unirest.http.HttpResponse;

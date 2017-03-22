@@ -1,11 +1,10 @@
-package com.jomoespe.lab.validationresponsability.logistics.rest;
+package com.jomoespe.lab.validationresponsability.myaccount.http;
 
-import static spark.Spark.path;
 import static spark.Spark.post;
 
 import static javax.json.Json.createReader;
 
-import com.jomoespe.lab.validationresponsability.logistics.core.Address;
+import com.jomoespe.lab.validationresponsability.myaccount.core.Customer;
 import com.jomoespe.lab.validationresponsability.validation.Validation;
 import com.jomoespe.lab.validationresponsability.validation.Transformer;
 
@@ -16,27 +15,27 @@ import java.io.StringReader;
 import java.util.function.Function;
 import javax.json.JsonObject;
 
-public class AddressValidationService {
-    private final Function<Address, Validation> validation;
+public class CustomerService {
+    private final Function<Customer, Validation> validation;
     
-    public AddressValidationService(Function<Address, Validation> validation) {
+    public CustomerService(Function<Customer, Validation> validation) {
         this.validation = validation;
-        path("/address", () -> {
-            post("/validation", this::validate, Transformer::toJson);
-        });
+        post("/customer/form/validation", this::validate, Transformer::toJson);
     }
 
     public Validation validate(final Request request, final Response response) {
-        Address customer = toCustomer.compose(toJson).apply(request.body());
+        Customer customer = toCustomer.compose(toJson).apply(request.body());
         return validation.apply(customer);
     }
 
     final Function<String, JsonObject> toJson = (message) -> 
             createReader(new StringReader(message)).readObject();
 
-    final Function<JsonObject, Address> toCustomer = (json) -> 
-        new Address.Builder()
-            .deliveryAddress(json.getString("address"))
+    final Function<JsonObject, Customer> toCustomer = (json) -> 
+        new Customer.Builder()
+            .name(json.getString("name"))
+            .email(json.getString("email"))
+            .phone(json.getString("phone"))
             .build();
 }
  

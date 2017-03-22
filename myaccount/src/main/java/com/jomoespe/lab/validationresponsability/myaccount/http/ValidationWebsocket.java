@@ -1,4 +1,4 @@
-package com.jomoespe.lab.validationresponsability.myaccount.rest;
+package com.jomoespe.lab.validationresponsability.myaccount.http;
 
 import static spark.Spark.webSocket;
 
@@ -13,7 +13,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 @WebSocket
-public class ValidationService {
+public class ValidationWebsocket {
     private static final String PATH = "/customerform/validation";
 
     private final Function<String, CustomerForm>     toCustomerCare;
@@ -21,7 +21,7 @@ public class ValidationService {
     private final Function<CustomerForm, Validation> financeValidation;
     private final Function<CustomerForm, Validation> logisticsValidation;
     
-    public ValidationService(final Supplier<Function<String, CustomerForm>>     toCustomerCare, 
+    public ValidationWebsocket(final Supplier<Function<String, CustomerForm>>     toCustomerCare, 
                              final Supplier<Function<CustomerForm, Validation>> customerCareValidationSupplier,
                              final Supplier<Function<CustomerForm, Validation>> financeValidationSupplier,
                              final Supplier<Function<CustomerForm, Validation>> logisticsValidationSupplier) {

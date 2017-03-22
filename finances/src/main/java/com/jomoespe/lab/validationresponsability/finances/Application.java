@@ -3,7 +3,7 @@ package com.jomoespe.lab.validationresponsability.finances;
 import static spark.Spark.port;
 
 import com.jomoespe.lab.validationresponsability.finances.core.BankAccountValidation;
-import com.jomoespe.lab.validationresponsability.finances.rest.BankAccountValidationService;
+import com.jomoespe.lab.validationresponsability.finances.http.BankAccountValidationService;
 
 public class Application {
     private static final int DEFAULT_PORT = 8082;

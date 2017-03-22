@@ -6,13 +6,13 @@ import static spark.Spark.init;
 
 import static javax.json.Json.createReader;
 
-import com.jomoespe.lab.validationresponsability.myaccount.rest.CustomerForm;
-import com.jomoespe.lab.validationresponsability.myaccount.rest.ValidationService;
+import com.jomoespe.lab.validationresponsability.myaccount.http.CustomerForm;
+import com.jomoespe.lab.validationresponsability.myaccount.http.ValidationWebsocket;
 import com.jomoespe.lab.validationresponsability.myaccount.adapters.CustomerCareValidation;
 import com.jomoespe.lab.validationresponsability.myaccount.adapters.FinancesValidation;
 import com.jomoespe.lab.validationresponsability.myaccount.adapters.LogisticsValidation;
 import com.jomoespe.lab.validationresponsability.myaccount.core.CustomerValidation;
-import com.jomoespe.lab.validationresponsability.myaccount.rest.CustomerService;
+import com.jomoespe.lab.validationresponsability.myaccount.http.CustomerService;
 import com.jomoespe.lab.validationresponsability.validation.Validation;
 
 import java.io.StringReader;
@@ -41,7 +41,7 @@ public class Application {
                         final Supplier<Function<CustomerForm, Validation>> logisticsValidation) {
         port(DEFAULT_PORT);
         staticFiles.location(STATIC_FILES_LOCATION);
-        new ValidationService(() -> toCustomerForm.compose(toJson), 
+        new ValidationWebsocket(() -> toCustomerForm.compose(toJson), 
                               customerCareValidation, 
                               financeValidation, 
                               logisticsValidation);

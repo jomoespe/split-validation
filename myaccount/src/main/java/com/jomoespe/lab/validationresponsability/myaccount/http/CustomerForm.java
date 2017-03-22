@@ -1,4 +1,4 @@
-package com.jomoespe.lab.validationresponsability.myaccount.rest;
+package com.jomoespe.lab.validationresponsability.myaccount.http;
 
 import static java.util.Optional.ofNullable;
 
